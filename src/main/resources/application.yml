@@ -6,26 +6,22 @@ spring:
   application:
     name: gyd-uaa
   cloud:
-    # 配置中心consul信息
     consul:
-      enabled: true # 是否启用consul, 默认true
-      host: 192.168.153.128
+      enabled: true
+      host: localhost
       port: 8500
-      # 业务服务实例信息
       discovery:
-        enabled: true     # 是否发现其他服务, 默认true
-        register: true    # 是否需要注册到consul， 默认true
-        instance-id: gyd-uaa-${spring.profiles.active}-${random.uuid}    # 注册实例ID。必须唯一
-        serviceName: gyd-uaa   # 注册实例服务名
-        #        hostname: 10.2.54.157    # 注册实例host
-        prefer-ip-address: true   # 是否使用ip地址注册
-        #        ip-address: ${spring.cloud.client.ip-address}
-        ip-address: 10.2.54.157   # 注册实例服务IP
-        port: ${server.port}      # 注册实例服务端口
-        healthCheckPath: /actuator/health  # 健康检查路径
-        healthCheckInterval: 15s           # 健康检查频率
-        health-check-timeout: 3s           # 健康检查超时时间
-        health-check-critical-timeout: 3s # 健康检查失败多长时间后，取消注册
+        enabled: true
+        register: true
+        instance-id: gyd-uaa-${spring.profiles.active}-${random.uuid}
+        serviceName: gyd-uaa
+        prefer-ip-address: true
+        ip-address: 192.168.1.101
+        port: ${server.port}
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 15s
+        health-check-timeout: 3s
+        health-check-critical-timeout: 3s
 
 
 

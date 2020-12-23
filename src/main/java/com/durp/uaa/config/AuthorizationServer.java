@@ -47,7 +47,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 // clients.withClientDetails(clientDetailsService);
         clients.inMemory()// 使用in‐memory存储
                 .withClient("client")// client_id
-                .secret(new BCryptPasswordEncoder().encode("secret")) //密钥
+                .secret("secret") //密钥
                 .resourceIds("res1") // 资源列表，资源服务ID
                 .authorizedGrantTypes("authorization_code",
                         "password","client_credentials","implicit","refresh_token")
